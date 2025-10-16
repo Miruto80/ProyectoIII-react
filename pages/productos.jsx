@@ -2,24 +2,23 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import Cards from '../components/Cards';
 import ModalProducto from '../components/Modal';
-import {productos} from '../Informacion/infoproductos';
+import {productos2} from '../Informacion/infoproductos';
 
-function Home() {
+export default function Productos() {
   const [modalVisible, setModalVisible] = useState(false);
-  const [productoActivo, setProductoActivo] = useState(null);
-
-  const handleCardPress = (producto) => {
-    setProductoActivo(producto);
-    setModalVisible(true);
-  };
-
-  return (
+    const [productoActivo, setProductoActivo] = useState(null);
+  
+    const handleCardPress = (producto) => {
+      setProductoActivo(producto);
+      setModalVisible(true);
+    };
+ return (
     <ScrollView>
       <View>
-        <Text style={styles.text}>Productos mas vendidos</Text>
+        <Text style={styles.text}>Todos los productos</Text>
       </View>
       <View style={styles.cardsContainer}>
-        {productos.map((prod, idx) => (
+        {productos2.map((prod, idx) => (
           <Cards
             key={idx}
             foto={prod.foto}
@@ -52,4 +51,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;

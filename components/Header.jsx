@@ -38,8 +38,7 @@ export default function Header({ title, showBack = false, onLogout }) {
 
   const enlaces = [
     { label: 'Inicio', route: 'Home' },
-    { label: 'Perfil', route: 'Profile' },
-    { label: 'Configuración', route: 'Settings' },
+    { label: 'Productos', route: 'Productos' },
   ];
 
   return (
@@ -63,7 +62,10 @@ export default function Header({ title, showBack = false, onLogout }) {
         <Image source={Logo} style={styles.logoLarge} />
         {onLogout && (
           <TouchableOpacity onPress={onLogout} style={styles.logoutButton}>
+            <View style={styles.iconRow}>
             <FontAwesome name="user" size={28} color="black" />
+            <FontAwesome name="shopping-cart" size={28} color="black" />
+            </View>
           </TouchableOpacity>
         )}
       </View>
@@ -148,5 +150,9 @@ const styles = StyleSheet.create({
   menuText: {
     fontSize: 16,
     color: '#333',
+  },
+  iconRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
